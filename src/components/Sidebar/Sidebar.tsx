@@ -1,7 +1,7 @@
-import "./Sidebar.css";
+import styles from "./Sidebar.module.css";
 
 type SidebarProps = {};
 
 export default function Sidebar({ }: SidebarProps) {
-    return <aside className="sidebar">Sidebar</aside>;
+    return <aside className={styles.sidebar}>Sidebar</aside>;
 }

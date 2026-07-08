@@ -1,7 +1,7 @@
-import "./WorkCalendar.css";
+import styles from "./WorkCalendar.module.css";
 
 type WorkCalendarProps = {};
 
 export default function WorkCalendar({ }: WorkCalendarProps) {
-    return <main className="work-calendar">Calendar</main>;
+    return <main className={styles.workCalendar}>Calendar</main>;
 }
