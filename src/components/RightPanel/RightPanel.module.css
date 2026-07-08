@@ -1,5 +1,5 @@
 .rightPanel {
-    height: 100vh;
+    height: 100%;
     padding: var(--space-lg);
     background: var(--bg-primary);
     border-left: 1px solid var(--border-color);
