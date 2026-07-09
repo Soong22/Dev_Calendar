@@ -1,0 +1,223 @@
+.workCalendar {
+    height: 100%;
+    padding: var(--space-lg);
+    background: var(--bg-primary);
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.label {
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+}
+
+.header h1 {
+    font-size: 24px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.viewTabs {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.viewTabs button,
+.addButton {
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+}
+
+.viewTabs button {
+    padding: 10px 16px;
+    background: var(--bg-primary);
+    border-right: 1px solid var(--border-color);
+}
+
+.viewTabs button:last-child {
+    border-right: 0;
+}
+
+.viewTabs .active {
+    background: var(--bg-secondary);
+    font-weight: 700;
+}
+
+.addButton {
+    padding: 10px 16px;
+    border-radius: var(--radius-md);
+    background: var(--color-primary);
+    color: white;
+    font-weight: 700;
+}
+
+.calendarCard,
+.detailArea>div {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-primary);
+}
+
+.weekGrid,
+.dateGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.weekDay {
+    padding: var(--space-md);
+    text-align: center;
+    font-size: var(--font-sm);
+    font-weight: 700;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dayCell {
+    min-height: 104px;
+    padding: var(--space-sm);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dayCell:nth-child(7n) {
+    border-right: 0;
+}
+
+.dayCell:nth-last-child(-n + 7) {
+    border-bottom: 0;
+}
+
+.selected {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+}
+
+.dayNumber {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+}
+
+.selected .dayNumber {
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: white;
+}
+
+.eventList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.eventPill {
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.blue {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.green {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.orange {
+    background: #ffedd5;
+    color: #c2410c;
+}
+
+.purple {
+    background: #f3e8ff;
+    color: #7e22ce;
+}
+
+.cyan {
+    background: #cffafe;
+    color: #0e7490;
+}
+
+.detailArea {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+.dayDetail,
+.eventDetail {
+    padding: var(--space-md);
+}
+
+.dayDetail h3,
+.eventDetail h3 {
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-lg);
+}
+
+.dayDetail p {
+    margin-bottom: var(--space-md);
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+}
+
+.detailItem {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: var(--space-sm);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: var(--font-sm);
+}
+
+.detailItem:last-child {
+    border-bottom: 0;
+}
+
+.detailItem span {
+    color: var(--text-secondary);
+}
+
+.eventDetail dl {
+    display: grid;
+    gap: var(--space-sm);
+    font-size: var(--font-sm);
+}
+
+.eventDetail dl div {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+}
+
+.eventDetail dt {
+    color: var(--text-secondary);
+}
+
+.eventDetail dd {
+    font-weight: 600;
+}
