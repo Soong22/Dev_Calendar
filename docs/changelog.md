@@ -2,7 +2,7 @@
 
 Dev_Calendar 프로젝트의 변경 이력을 기록합니다.
 
-## [0.1.0] - 2026-07-08
+## [v0.1.0] - 2026-07-08
 
 ### Planned
 
@@ -27,7 +27,7 @@ Dev_Calendar 프로젝트의 변경 이력을 기록합니다.
 - Bottom Toolbar
 - Design System
 
-## [0.1.0] - UI Layout  - 2026-07-09
+## [v0.1.0] - UI Layout  - 2026-07-09
 
 ### Added
 
@@ -44,8 +44,10 @@ Dev_Calendar 프로젝트의 변경 이력을 기록합니다.
 Completed initial dashboard layout based on UI mockup.
 
 
-## [0.2.0] - calendar-intergration
+## [v0.1.0-alpha] - calendar-intergration - 2026-07-09
 
 ### Planned
 - Fake Calendar UI → FullCalendar 실제 컴포넌트로 교체
 
+### Added
+- FullCalendar 연동
