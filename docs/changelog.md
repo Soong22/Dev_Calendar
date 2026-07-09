@@ -51,3 +51,14 @@ Completed initial dashboard layout based on UI mockup.
 
 ### Added
 - FullCalendar 연동
+
+
+## [v0.2.0] - UI Polish - 2026-07-09
+
+### Planned
+- 캘린더 상단 헤더 다듬기
+
+### Added
+- 이전/다음/오늘 버튼 추가
+- 월/주/일/목록 버튼 pill 형태로 수정
+- + 일정 추가 버튼이 둥글게 수정

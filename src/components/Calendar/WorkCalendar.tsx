@@ -40,9 +40,15 @@ export default function WorkCalendar({ }: WorkCalendarProps) {
     return (
         <main className={styles.workCalendar}>
             <header className={styles.header}>
-                <div>
+                <div className={styles.titleGroup}>
                     <p className={styles.label}>Calendar</p>
-                    <h1>2026년 7월</h1>
+
+                    <div className={styles.monthNav}>
+                        <button className={styles.navButton}>‹</button>
+                        <h1>2026년 7월</h1>
+                        <button className={styles.navButton}>›</button>
+                        <button className={styles.todayButton}>오늘</button>
+                    </div>
                 </div>
 
                 <div className={styles.actions}>
