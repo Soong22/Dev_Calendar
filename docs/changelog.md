@@ -42,3 +42,10 @@ Dev_Calendar 프로젝트의 변경 이력을 기록합니다.
 ### Notes
 
 Completed initial dashboard layout based on UI mockup.
+
+
+## [0.2.0] - calendar-intergration
+
+### Planned
+- Fake Calendar UI → FullCalendar 실제 컴포넌트로 교체
+

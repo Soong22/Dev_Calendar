@@ -72,96 +72,6 @@
     background: var(--bg-primary);
 }
 
-.weekGrid,
-.dateGrid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-}
-
-.weekDay {
-    padding: var(--space-md);
-    text-align: center;
-    font-size: var(--font-sm);
-    font-weight: 700;
-    color: var(--text-secondary);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.dayCell {
-    min-height: 104px;
-    padding: var(--space-sm);
-    border-right: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.dayCell:nth-child(7n) {
-    border-right: 0;
-}
-
-.dayCell:nth-last-child(-n + 7) {
-    border-bottom: 0;
-}
-
-.selected {
-    outline: 2px solid var(--color-primary);
-    outline-offset: -2px;
-}
-
-.dayNumber {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    margin-bottom: var(--space-xs);
-    font-size: var(--font-sm);
-    color: var(--text-secondary);
-}
-
-.selected .dayNumber {
-    border-radius: 999px;
-    background: var(--color-primary);
-    color: white;
-}
-
-.eventList {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.eventPill {
-    padding: 4px 6px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 600;
-}
-
-.blue {
-    background: #dbeafe;
-    color: #1d4ed8;
-}
-
-.green {
-    background: #dcfce7;
-    color: #15803d;
-}
-
-.orange {
-    background: #ffedd5;
-    color: #c2410c;
-}
-
-.purple {
-    background: #f3e8ff;
-    color: #7e22ce;
-}
-
-.cyan {
-    background: #cffafe;
-    color: #0e7490;
-}
-
 .detailArea {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -220,4 +130,62 @@
 
 .eventDetail dd {
     font-weight: 600;
+}
+
+.calendarCard :global(.fc) {
+    font-family: inherit;
+}
+
+.calendarCard :global(.fc-theme-standard td),
+.calendarCard :global(.fc-theme-standard th) {
+    border-color: var(--border-color);
+}
+
+.calendarCard :global(.fc-scrollgrid) {
+    border: 0;
+}
+
+.calendarCard :global(.fc-col-header-cell) {
+    padding: 10px 0;
+    background: var(--bg-primary);
+}
+
+.calendarCard :global(.fc-col-header-cell-cushion) {
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+    text-decoration: none;
+}
+
+.calendarCard :global(.fc-daygrid-day-frame) {
+    padding: 8px;
+}
+
+.calendarCard :global(.fc-daygrid-day-number) {
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+    text-decoration: none;
+}
+
+.calendarCard :global(.fc-day-today) {
+    background: #fff7ed !important;
+}
+
+.calendarCard :global(.fc-event) {
+    border: 0 !important;
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.calendarCard :global(.fc-event-title) {
+    font-weight: 600;
+}
+
+.calendarCard :global(.fc-daygrid-event) {
+    margin: 2px 6px;
+}
+
+.calendarCard :global(.fc-daygrid-day) {
+    height: 92px;
 }

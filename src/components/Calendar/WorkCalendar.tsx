@@ -1,25 +1,39 @@
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
 import styles from "./WorkCalendar.module.css";
 
 type WorkCalendarProps = {};
 
-const weekDays = ["일", "월", "화", "수", "목", "금", "토"];
-
-const days = [
-    28, 29, 30, 1, 2, 3, 4,
-    5, 6, 7, 8, 9, 10, 11,
-    12, 13, 14, 15, 16, 17, 18,
-    19, 20, 21, 22, 23, 24, 25,
-    26, 27, 28, 29, 30, 31, 1,
-];
-
 const sampleEvents = [
-    { day: 1, title: "Batch 처리", color: "orange" },
-    { day: 7, title: "JSONL 오류 수정", color: "blue" },
-    { day: 7, title: "데이터 수집", color: "green" },
-    { day: 8, title: "Parser 리팩터링", color: "green" },
-    { day: 15, title: "QA 정책 정리", color: "purple" },
-    { day: 28, title: "Batch 에러 처리", color: "blue" },
-    { day: 29, title: "리포트 작성", color: "cyan" },
+    {
+        id: "1",
+        title: "Batch 처리",
+        date: "2026-07-01",
+        backgroundColor: "#F59E0B",
+        borderColor: "#F59E0B",
+    },
+    {
+        id: "2",
+        title: "JSONL 오류 수정",
+        date: "2026-07-07",
+        backgroundColor: "#3B82F6",
+        borderColor: "#3B82F6",
+    },
+    {
+        id: "3",
+        title: "데이터 수집",
+        date: "2026-07-07",
+        backgroundColor: "#22C55E",
+        borderColor: "#22C55E",
+    },
+    {
+        id: "4",
+        title: "Parser 리팩터링",
+        date: "2026-07-08",
+        backgroundColor: "#22C55E",
+        borderColor: "#22C55E",
+    },
 ];
 
 export default function WorkCalendar({ }: WorkCalendarProps) {
@@ -44,46 +58,21 @@ export default function WorkCalendar({ }: WorkCalendarProps) {
             </header>
 
             <section className={styles.calendarCard}>
-                <div className={styles.weekGrid}>
-                    {weekDays.map((day) => (
-                        <div className={styles.weekDay} key={day}>
-                            {day}
-                        </div>
-                    ))}
-                </div>
-
-                <div className={styles.dateGrid}>
-                    {days.map((day, index) => {
-                        const events = sampleEvents.filter((event) => event.day === day);
-                        const isSelected = day === 7 && index === 16;
-
-                        return (
-                            <div
-                                className={`${styles.dayCell} ${isSelected ? styles.selected : ""}`}
-                                key={`${day}-${index}`}
-                            >
-                                <span className={styles.dayNumber}>{day}</span>
-
-                                <div className={styles.eventList}>
-                                    {events.map((event) => (
-                                        <span
-                                            className={`${styles.eventPill} ${styles[event.color]}`}
-                                            key={`${day}-${event.title}`}
-                                        >
-                                            {event.title}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
+                <FullCalendar
+                    plugins={[dayGridPlugin, interactionPlugin]}
+                    initialView="dayGridMonth"
+                    initialDate="2026-07-01"
+                    locale="ko"
+                    height="auto"
+                    headerToolbar={false}
+                    events={sampleEvents}
+                />
             </section>
 
             <section className={styles.detailArea}>
                 <div className={styles.dayDetail}>
                     <h3>7월 7일 (화)</h3>
-                    <p>3개의 일정</p>
+                    <p>2개의 일정</p>
 
                     <div className={styles.detailItem}>
                         <span>10:00</span>
@@ -92,10 +81,6 @@ export default function WorkCalendar({ }: WorkCalendarProps) {
                     <div className={styles.detailItem}>
                         <span>15:00</span>
                         <strong>데이터 수집</strong>
-                    </div>
-                    <div className={styles.detailItem}>
-                        <span>18:00</span>
-                        <strong>회의</strong>
                     </div>
                 </div>
 
@@ -116,7 +101,7 @@ export default function WorkCalendar({ }: WorkCalendarProps) {
                         </div>
                         <div>
                             <dt>설명</dt>
-                            <dd>Calendar UI 구현 및 시안 반영</dd>
+                            <dd>FullCalendar 연동 테스트</dd>
                         </div>
                     </dl>
                 </div>
