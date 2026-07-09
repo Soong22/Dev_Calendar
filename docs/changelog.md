@@ -27,3 +27,18 @@ Dev_Calendar 프로젝트의 변경 이력을 기록합니다.
 - Bottom Toolbar
 - Design System
 
+## [0.1.0] - UI Layout  - 2026-07-09
+
+### Added
+
+- Dashboard layout
+- Sidebar UI
+- Calendar placeholder UI
+- Right panel UI
+- Bottom toolbar UI
+- CSS Modules
+- Design System
+
+### Notes
+
+Completed initial dashboard layout based on UI mockup.
