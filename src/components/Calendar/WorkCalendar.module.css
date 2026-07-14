@@ -152,15 +152,200 @@
 
 .detailArea {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     gap: var(--space-md);
     margin-top: var(--space-md);
 }
 
 .dayDetail,
 .eventDetail {
-    padding: var(--space-md);
+    min-width: 0;
+    padding: var(--space-lg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-primary);
 }
+
+.detailHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.detailLabel {
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-sm);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.detailHeader h3 {
+    font-size: var(--font-lg);
+    letter-spacing: -0.02em;
+}
+
+.scheduleList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.scheduleItem {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr) 10px;
+    align-items: center;
+    gap: var(--space-sm);
+    width: 100%;
+    padding: 12px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.scheduleItem:hover {
+    border-color: var(--border-color);
+    transform: translateY(-1px);
+}
+
+.scheduleItemActive {
+    border-color: #bfdbfe;
+    background: #eff6ff;
+}
+
+.time {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+}
+
+.scheduleContent {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.scheduleContent strong,
+.scheduleContent small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.scheduleContent strong {
+    font-size: var(--font-md);
+}
+
+.scheduleContent small {
+    color: var(--text-secondary);
+}
+
+.statusBadge {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.projectDotBlue,
+.projectDotGreen {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    border-radius: 999px;
+}
+
+.projectDotBlue {
+    background: #3b82f6;
+}
+
+.projectDotGreen {
+    background: #22c55e;
+}
+
+.eventInfo {
+    display: grid;
+    gap: var(--space-md);
+    margin: 0;
+}
+
+.eventInfo>div {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: var(--space-md);
+}
+
+.eventInfo dt {
+    color: var(--text-secondary);
+    font-size: var(--font-sm);
+}
+
+.eventInfo dd {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    min-width: 0;
+    margin: 0;
+    font-size: var(--font-sm);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.detailActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.secondaryButton,
+.primaryButton {
+    height: 36px;
+    padding: 0 var(--space-md);
+    border-radius: 999px;
+    font: inherit;
+    font-size: var(--font-sm);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.secondaryButton {
+    border: 1px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.primaryButton {
+    border: 1px solid var(--color-primary);
+    background: var(--color-primary);
+    color: white;
+}
+
+.secondaryButton:hover,
+.primaryButton:hover {
+    transform: translateY(-1px);
+}
+
+.countBadge,
+.statusBadge {
+    flex-shrink: 0;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: var(--font-sm);
+    font-weight: 700;
+}
+
+.countBadge {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+
 
 .dayDetail h3,
 .eventDetail h3 {

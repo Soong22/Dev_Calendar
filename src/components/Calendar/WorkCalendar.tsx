@@ -76,41 +76,81 @@ export default function WorkCalendar({ }: WorkCalendarProps) {
             </section>
 
             <section className={styles.detailArea}>
-                <div className={styles.dayDetail}>
-                    <h3>7월 7일 (화)</h3>
-                    <p>2개의 일정</p>
+                <article className={styles.dayDetail}>
+                    <div className={styles.detailHeader}>
+                        <div>
+                            <p className={styles.detailLabel}>Selected Day</p>
+                            <h3>2026년 7월 7일</h3>
+                        </div>
 
-                    <div className={styles.detailItem}>
-                        <span>10:00</span>
-                        <strong>JSONL 오류 수정</strong>
+                        <span className={styles.countBadge}>2개의 일정</span>
                     </div>
-                    <div className={styles.detailItem}>
-                        <span>15:00</span>
-                        <strong>데이터 수집</strong>
-                    </div>
-                </div>
 
-                <div className={styles.eventDetail}>
-                    <h3>상세 정보</h3>
-                    <dl>
+                    <div className={styles.scheduleList}>
+                        <button className={`${styles.scheduleItem} ${styles.scheduleItemActive}`}>
+                            <span className={styles.time}>10:00</span>
+
+                            <span className={styles.scheduleContent}>
+                                <strong>JSONL 오류 수정</strong>
+                                <small>Dev_Calendar · 진행중</small>
+                            </span>
+
+                            <span className={styles.projectDotBlue} />
+                        </button>
+
+                        <button className={styles.scheduleItem}>
+                            <span className={styles.time}>15:00</span>
+
+                            <span className={styles.scheduleContent}>
+                                <strong>데이터 수집</strong>
+                                <small>Parser · 예정</small>
+                            </span>
+
+                            <span className={styles.projectDotGreen} />
+                        </button>
+                    </div>
+                </article>
+
+                <article className={styles.eventDetail}>
+                    <div className={styles.detailHeader}>
+                        <div>
+                            <p className={styles.detailLabel}>Selected Event</p>
+                            <h3>JSONL 오류 수정</h3>
+                        </div>
+
+                        <span className={styles.statusBadge}>진행중</span>
+                    </div>
+
+                    <dl className={styles.eventInfo}>
                         <div>
                             <dt>프로젝트</dt>
-                            <dd>Dev_Calendar</dd>
+                            <dd>
+                                <span className={styles.projectDotBlue} />
+                                Dev_Calendar
+                            </dd>
                         </div>
-                        <div>
-                            <dt>상태</dt>
-                            <dd>진행중</dd>
-                        </div>
+
                         <div>
                             <dt>시간</dt>
-                            <dd>2026-07-07 10:00 ~ 12:00</dd>
+                            <dd>10:00 ~ 12:00</dd>
                         </div>
+
+                        <div>
+                            <dt>우선순위</dt>
+                            <dd>보통</dd>
+                        </div>
+
                         <div>
                             <dt>설명</dt>
-                            <dd>FullCalendar 연동 테스트</dd>
+                            <dd>FullCalendar 연동 과정에서 발견된 JSONL 오류를 수정합니다.</dd>
                         </div>
                     </dl>
-                </div>
+
+                    <div className={styles.detailActions}>
+                        <button className={styles.secondaryButton}>수정</button>
+                        <button className={styles.primaryButton}>완료 처리</button>
+                    </div>
+                </article>
             </section>
         </main>
     );
