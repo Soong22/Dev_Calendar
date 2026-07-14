@@ -58,6 +58,7 @@ Completed initial dashboard layout based on UI mockup.
 ### Planned
 - 캘린더 상단 헤더 다듬기
 - 캘린더 상세 일정 UI 개선
+- UI Interaction 추가
 
 ### Added
 - 이전/다음/오늘 버튼 추가
@@ -66,3 +67,10 @@ Completed initial dashboard layout based on UI mockup.
 - 선택된 업무 강조
 - 상태와 프로젝트 색상 표시
 - 수정/완료 버튼 추가
+- `<`, `>`를 누르면 이전·다음 기간으로 이동
+- `오늘`을 누르면 현재 날짜로 이동
+- `월`을 누르면 월간 보기
+- `주`를 누르면 일간 보기
+- `일`을 누르면 일간 보기
+- `목록`을 누르면 일정 목록 보기
+- 화면을 바꾸면 상단 제목과 선택 버튼도 함께 변경

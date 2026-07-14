@@ -1,9 +1,28 @@
+import { useRef, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import listPlugin from "@fullcalendar/list";
 import interactionPlugin from "@fullcalendar/interaction";
 import styles from "./WorkCalendar.module.css";
 
 type WorkCalendarProps = {};
+
+type CalendarView =
+    | "dayGridMonth"
+    | "timeGridWeek"
+    | "timeGridDay"
+    | "listMonth";
+
+const calendarViews: {
+    label: string;
+    value: CalendarView;
+}[] = [
+        { label: "월", value: "dayGridMonth" },
+        { label: "주", value: "timeGridWeek" },
+        { label: "일", value: "timeGridDay" },
+        { label: "목록", value: "listMonth" },
+    ];
 
 const sampleEvents = [
     {
@@ -37,6 +56,33 @@ const sampleEvents = [
 ];
 
 export default function WorkCalendar({ }: WorkCalendarProps) {
+    const calendarRef = useRef<FullCalendar | null>(null);
+
+    const [calendarTitle, setCalendarTitle] = useState("2026년 7월");
+    const [currentView, setCurrentView] =
+        useState<CalendarView>("dayGridMonth");
+
+    const getCalendarApi = () => {
+        return calendarRef.current?.getApi();
+    };
+
+    const handlePrevious = () => {
+        getCalendarApi()?.prev();
+    };
+
+    const handleNext = () => {
+        getCalendarApi()?.next();
+    };
+
+    const handleToday = () => {
+        getCalendarApi()?.today();
+    };
+
+    const handleViewChange = (view: CalendarView) => {
+        getCalendarApi()?.changeView(view);
+        setCurrentView(view);
+    };
+
     return (
         <main className={styles.workCalendar}>
             <header className={styles.header}>
@@ -44,34 +90,77 @@ export default function WorkCalendar({ }: WorkCalendarProps) {
                     <p className={styles.label}>Calendar</p>
 
                     <div className={styles.monthNav}>
-                        <button className={styles.navButton}>‹</button>
-                        <h1>2026년 7월</h1>
-                        <button className={styles.navButton}>›</button>
-                        <button className={styles.todayButton}>오늘</button>
+                        <button
+                            type="button"
+                            className={styles.navButton}
+                            onClick={handlePrevious}
+                            aria-label="이전 기간"
+                        >
+                            ‹
+                        </button>
+
+                        <h1>{calendarTitle}</h1>
+
+                        <button
+                            type="button"
+                            className={styles.navButton}
+                            onClick={handleNext}
+                            aria-label="다음 기간"
+                        >
+                            ›
+                        </button>
+
+                        <button
+                            type="button"
+                            className={styles.todayButton}
+                            onClick={handleToday}
+                        >
+                            오늘
+                        </button>
                     </div>
                 </div>
 
                 <div className={styles.actions}>
                     <div className={styles.viewTabs}>
-                        <button className={styles.active}>월</button>
-                        <button>주</button>
-                        <button>일</button>
-                        <button>목록</button>
+                        {calendarViews.map((view) => (
+                            <button
+                                type="button"
+                                key={view.value}
+                                className={
+                                    currentView === view.value ? styles.active : undefined
+                                }
+                                onClick={() => handleViewChange(view.value)}
+                            >
+                                {view.label}
+                            </button>
+                        ))}
                     </div>
 
-                    <button className={styles.addButton}>+ 일정 추가</button>
+                    <button type="button" className={styles.addButton}>
+                        + 일정 추가
+                    </button>
                 </div>
             </header>
 
             <section className={styles.calendarCard}>
                 <FullCalendar
-                    plugins={[dayGridPlugin, interactionPlugin]}
+                    ref={calendarRef}
+                    plugins={[
+                        dayGridPlugin,
+                        timeGridPlugin,
+                        listPlugin,
+                        interactionPlugin,
+                    ]}
                     initialView="dayGridMonth"
                     initialDate="2026-07-01"
                     locale="ko"
                     height="auto"
                     headerToolbar={false}
                     events={sampleEvents}
+                    datesSet={(dateInfo) => {
+                        setCalendarTitle(dateInfo.view.title);
+                        setCurrentView(dateInfo.view.type as CalendarView);
+                    }}
                 />
             </section>
 
