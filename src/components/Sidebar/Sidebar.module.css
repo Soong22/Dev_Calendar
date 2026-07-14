@@ -1,6 +1,7 @@
 .sidebar {
     height: 100%;
     padding: var(--space-lg);
+    overflow-y: auto;
     background: var(--bg-sidebar);
     border-right: 1px solid var(--border-color);
 }
@@ -8,38 +9,130 @@
 .logo {
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-xl);
+    gap: 12px;
+    margin-bottom: var(--space-lg);
+}
+
+.logoIcon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    background: var(--color-primary);
+    color: white;
     font-size: var(--font-lg);
-    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+}
+
+.logo strong {
+    font-size: var(--font-lg);
+    letter-spacing: -0.02em;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: var(--space-lg);
+    padding: 0 0 var(--space-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.accountAvatar {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: var(--font-md);
+}
+
+.accountName {
+    min-width: 0;
+    overflow: hidden;
+    /* color: var(--text-primary); 진하게 */
+    color: var(--text-secondary); /* 은은하게 */
+    font-size: var(--font-md);
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
 }
 
 .section {
-    margin-bottom: var(--space-xl);
+    min-width: 0;
 }
 
-.section h3 {
+.sectionTitle {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-    margin-bottom: var(--space-md);
-    font-size: var(--font-sm);
+    margin-bottom: var(--space-sm);
+    padding: 0 var(--space-sm);
     color: var(--text-secondary);
-    text-transform: uppercase;
+    font-size: var(--font-sm);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.itemList {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .item {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-    padding: 6px 0;
+    min-height: 36px;
+    padding: 7px var(--space-sm);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
     font-size: var(--font-md);
+    cursor: pointer;
+    transition:
+        background-color 0.15s ease,
+        transform 0.15s ease;
+}
+
+.item:hover {
+    background: var(--bg-primary);
+    transform: translateX(2px);
+}
+
+.itemText {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin: 0 0 0 auto;
+    accent-color: #2563eb;
     cursor: pointer;
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
     border-radius: 999px;
 }
 

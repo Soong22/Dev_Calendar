@@ -59,6 +59,7 @@ Completed initial dashboard layout based on UI mockup.
 - 캘린더 상단 헤더 다듬기
 - 캘린더 상세 일정 UI 개선
 - UI Interaction 추가
+- 사이드바 UI 수정
 
 ### Added
 - 이전/다음/오늘 버튼 추가
@@ -74,3 +75,6 @@ Completed initial dashboard layout based on UI mockup.
 - `일`을 누르면 일간 보기
 - `목록`을 누르면 일정 목록 보기
 - 화면을 바꾸면 상단 제목과 선택 버튼도 함께 변경
+- 사이드바 메뉴 항목에 애니메이션 추가
+- 로고 아이콘 추가
+- 
